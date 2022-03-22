@@ -3,13 +3,13 @@ const router = express.Router();
 const create = require('apisauce').create;
 
 const api = create({
-    baseURL: 'https://countriesnow.space/api/v0.1',
+    baseURL: 'https://restcountries.com/v3.1/',
     headers: { Accept: 'application/json' },
 });
 
 module.exports.countries = (req, res) => {
 
-    api.get('/countries')
+    api.get(`/all`)
     .then( response => response.data)
     .then( data => res.send(data))
 
