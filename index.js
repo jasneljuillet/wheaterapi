@@ -15,5 +15,7 @@ app.use(cors());
     app.get('/api/countries', countries.countries);
 
 
+    app.get('/', (req, res) => res.send('Welcome by Jasnel Juillet'));
+    
 const PORT = process.env.PORT || 3000;
 app.listen( PORT, () => log(`${PORT} is ready`));
