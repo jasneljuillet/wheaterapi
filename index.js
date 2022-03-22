@@ -1,7 +1,19 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-const port = process.env.PORT || 3000;
 const log = console.log;
+const countries = require('./api/countries');
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+app.use(cors());
 
-app.use( port, () => log(`${port} is ready`));
+// endpoints
+    //Countries 
+    app.get('/api/countries', countries.countries);
+
+
+const PORT = process.env.PORT || 3000;
+app.listen( PORT, () => log(`${PORT} is ready`));
